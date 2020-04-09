@@ -1,5 +1,16 @@
 import React from 'react';
 
+const addEntryPoint = (entry, host, scriptId, cb) => {
+  const script = document.createElement('script');
+  script.id = scriptId;
+  script.crossOrigin = '';
+  script.src = `${host}/${entry}`;
+
+  if (cb) script.onload = cb;
+
+  document.head.appendChild(script);
+};
+
 class MicroFrontend extends React.Component {
   componentDidMount() {
     const { name, host, document } = this.props;
@@ -13,27 +24,9 @@ class MicroFrontend extends React.Component {
     fetch(`${host}/asset-manifest.json`)
       .then((res) => res.json())
       .then((manifest) => {
-        console.log(manifest);
-
-        // TODO: loop through entrypoints instead
-        const script = document.createElement('script');
-        script.id = scriptId;
-        script.crossOrigin = '';
-        script.src = `${host}/${manifest.entrypoints[0]}`;
-        document.head.appendChild(script);
-
-        const script3 = document.createElement('script');
-        script3.id = scriptId + 3;
-        script3.crossOrigin = '';
-        script3.src = `${host}/${manifest.entrypoints[1]}`;
-        script3.onload = this.renderMicroFrontend;
-        document.head.appendChild(script3);
-
-        const script2 = document.createElement('script');
-        script2.id = scriptId + 2;
-        script2.crossOrigin = '';
-        script2.src = `${host}/${manifest.entrypoints[2]}`;
-        document.head.appendChild(script2);
+        addEntryPoint(manifest.entrypoints[0], host, scriptId);
+        addEntryPoint(manifest.entrypoints[1], host, `micro-frontend-script-${name}-1`, this.renderMicroFrontend);
+        addEntryPoint(manifest.entrypoints[2], host, `micro-frontend-script-${name}-2`);
       });
   }
 

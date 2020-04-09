@@ -1,12 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Results from './Results';
 
 function App() {
   return (
     <div className="app__container">
-      <label htmlFor="findRecipe">Find a Recipe:</label>
-      <input id="findRecipe" type="text" placeholder="E.g. steak, baked chicken, cookies..." />
+      <h1>Find a Recipe:</h1>
+      <input type="text" placeholder="E.g. steak, baked chicken, cookies..." />
+      <Results />
     </div>
   );
 }
