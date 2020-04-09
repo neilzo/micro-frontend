@@ -1,0 +1,19 @@
+{
+  "name": "my_micro_fe",
+  "version": "1.0.0",
+  "description": "Example of a micro frontend architecture",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "frontend",
+    "react",
+    "microservices",
+    "micro",
+    "frontend",
+    "monorepo"
+  ],
+  "author": "Neil Daftary",
+  "license": "MIT"
+}

@@ -1,0 +1,9 @@
+.app__container {
+  background-color: salmon;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  height: calc(100vh - 50px);
+}
