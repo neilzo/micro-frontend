@@ -14,7 +14,7 @@ const Results = () => {
         setRecipes(data.results);
       })
       .catch((e) => console.error('something went wrong', e));
-  }, [fetchRecipes]);
+  }, []);
 
   if (!recipes.length) return null;
 
@@ -22,7 +22,7 @@ const Results = () => {
     <section>
       <span>{recipes.length} results</span>
       {recipes.map((recipe, i) => (
-        <div key={i}>
+        <div key={`recipe-${i}`}>
           <h3>{recipe.name}</h3>
         </div>
       ))}
