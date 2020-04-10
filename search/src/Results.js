@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const fetchRecipes = () => {
   const host = process.env.REACT_APP_SEARCH_HOST;
@@ -7,6 +8,7 @@ const fetchRecipes = () => {
 
 const Results = () => {
   const [recipes, setRecipes] = useState([]);
+  const resultNum = recipes.length;
 
   useEffect(() => {
     fetchRecipes()
@@ -16,15 +18,17 @@ const Results = () => {
       .catch((e) => console.error('something went wrong', e));
   }, []);
 
-  if (!recipes.length) return null;
+  if (!resultNum) return null;
 
   return (
     <section>
-      <span>{recipes.length} results</span>
-      {recipes.map((recipe, i) => (
-        <div key={`recipe-${i}`}>
-          <h3>{recipe.name}</h3>
-        </div>
+      <span>{resultNum} results</span>
+      {recipes.map((recipe) => (
+        <Link to={`/recipe/${recipe.id}`}>
+          <div key={recipe.id}>
+            <h3>{recipe.name}</h3>
+          </div>
+        </Link>
       ))}
     </section>
   );

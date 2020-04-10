@@ -1,5 +1,5 @@
 const express = require('express');
-const recipeData = require('./restaurants.json');
+const recipeData = require('./search.json');
 
 const app = express();
 

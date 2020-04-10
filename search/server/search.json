@@ -1,12 +1,15 @@
 {
   "results": [
     {
+      "id": "1",
       "name": "Baked Salmon"
     },
     {
+      "id": "2",
       "name": "Miso Soup"
     },
     {
+      "id": "3",
       "name": "Pizza"
     }
   ]

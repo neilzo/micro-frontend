@@ -25,6 +25,7 @@ class MicroFrontend extends React.Component {
     fetch(`${host}/asset-manifest.json`)
       .then((res) => res.json())
       .then((manifest) => {
+        console.log(manifest);
         addEntryPoint(manifest.entrypoints[0], host, scriptId);
         addEntryPoint(
           manifest.entrypoints[1],

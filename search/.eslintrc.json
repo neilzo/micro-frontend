@@ -1,20 +1,10 @@
 {
-  "env": {
-
-  },
-  "extends": [
-    "@neilzo/eslint-config-microfrontend"
-  ],
-  "globals": {
-
-  },
-  "parserOptions": {
-
-  },
-  "plugins": [
-
-  ],
+  "env": {},
+  "extends": ["@neilzo/eslint-config-microfrontend"],
+  "globals": {},
+  "parserOptions": {},
+  "plugins": [],
   "rules": {
-
+    "react/jsx-one-expression-per-line": "off"
   }
 }

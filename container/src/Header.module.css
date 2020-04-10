@@ -1,19 +1,22 @@
-.header__container {
+.container {
   height: 50px;
   display: flex;
   align-items: center;
   padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-white);
 }
 
-.header__links--home {
+.linksHome {
   color: var(--text-color);
   text-decoration: none;
   font-size: 1.375rem;
 }
 
-.header__links--home:hover {
+.linksHome:hover {
 }
 
-.header__links {
+.links {
   margin-left: 20px;
 }

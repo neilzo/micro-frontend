@@ -1,0 +1,59 @@
+{
+  "1": {
+    "id": "1",
+    "name": "Baked Salmon",
+    "ingredients": [
+      "2 cloves garlic, minced",
+      "6 tablespoons olive oil",
+      "1 teaspoon dried basil",
+      "1 teaspoon salt",
+      "1 teaspoon ground black pepper",
+      "1 tablespoon lemon juice",
+      "1 tablespoon fresh parsley, chopped",
+      "2 (6 ounce) fillets salmon"
+    ],
+    "directions": [
+      "In a medium glass bowl, prepare marinade by mixing garlic, light olive oil, basil, salt, pepper, lemon juice and parsley. Place salmon fillets in a medium glass baking dish, and cover with the marinade. Marinate in the refrigerator about 1 hour, turning occasionally.",
+      "Preheat oven to 375 degrees F (190 degrees C).",
+      "Place fillets in aluminum foil, cover with marinade, and seal. Place sealed salmon in the glass dish, and bake 35 to 45 minutes, until easily flaked with a fork."
+    ]
+  },
+  "2": {
+    "id": "2",
+    "name": "Miso Soup",
+    "ingredients": [
+      "2 teaspoons dashi granules",
+      "4 cups water",
+      "3 tablespoons miso paste",
+      "1 (8 ounce) package silken tofu, diced",
+      "2 green onions, sliced diagonally into 1/2 inch pieces"
+    ],
+    "directions": [
+      "In a medium saucepan over medium-high heat, combine dashi granules and water; bring to a boil. Reduce heat to medium, and whisk in the miso paste. Stir in tofu. Separate the layers of the green onions, and add them to the soup. Simmer gently for 2 to 3 minutes before serving."
+    ]
+  },
+  "3": {
+    "id": "3",
+    "name": "Brick-Oven Pizza (Brooklyn Style)",
+    "ingredients": [
+      "1 teaspoon active dry yeast",
+      "1/4 cup warm water",
+      "1 cup cold water",
+      "1 teaspoon salt",
+      "3 cups bread flour",
+      "6 ounces low moisture mozzarella cheese, thinly sliced",
+      "1/2 cup no salt added canned crushed tomatoes",
+      "1/4 teaspoon freshly ground black pepper",
+      "1/2 teaspoon dried oregano",
+      "3 tablespoons extra-virgin olive oil",
+      "6 leaves fresh basil, torn"
+    ],
+    "directions": [
+      "Sprinkle yeast over warm water in a large bowl. Let stand for 5 minutes to proof. Stir in salt and cold water, then stir in the flour about 1 cup at a time. When the dough is together enough to remove from the bowl, knead on a floured surface until smooth, about 10 minutes. Divide into two pieces, and form each one into a tight ball. Coat the dough balls with olive oil, and refrigerate in a sealed container for at least 16 hours. Be sure to use a big enough container to allow the dough to rise. Remove the dough from the refrigerator one hour prior to using.",
+      "Preheat the oven, with a pizza stone on the lowest rack, to 550 degrees F. Lightly dust a pizza peel with flour.",
+      "Using one ball of dough at a time, lightly dust the dough with flour, and stretch gradually until it is about 14 inches in diameter, or about as big around as the pizza stone. Place on the floured peel. Place thin slices of mozzarella over the crust, then grind a liberal amount of black pepper over it. Sprinkle with dried oregano. Randomly arrange crushed tomatoes, leaving some empty areas. Drizzle olive oil over the top.",
+      "With a quick back and forth jerk, make sure the dough will release from the peel easily. Place the tip of the peel at the back of the preheated pizza stone, and remove peel so that the pizza is left on the stone.",
+      "Bake for 4 to 6 minutes in the preheated oven, or until the crust begins to brown. Remove from the oven by sliding the peel beneath the pizza. Sprinkle a few basil leaves randomly over the pizza. Cut into wedges and serve."
+    ]
+  }
+}

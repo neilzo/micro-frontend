@@ -5,5 +5,5 @@
   flex-direction: column;
   font-size: calc(10px + 2vmin);
   color: white;
-  height: calc(100vh - 50px);
+  min-height: calc(100vh - 50px);
 }

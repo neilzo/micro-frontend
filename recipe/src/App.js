@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Router } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
-import Results from './Results';
+import Recipe from './Recipe';
 
 import styles from './App.module.css';
 
@@ -13,9 +13,7 @@ function App({ history }) {
   return (
     <Router history={history || defaultHistory}>
       <div className={styles.app__container}>
-        <h1>Find a Recipe:</h1>
-        <input type="text" placeholder="E.g. steak, baked chicken, cookies..." />
-        <Results />
+        <Route exact path="/recipe/:id" component={Recipe} />
       </div>
     </Router>
   );
