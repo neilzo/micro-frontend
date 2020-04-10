@@ -1,5 +1,5 @@
-import express from 'express';
-import recipeData from './restaurants.json';
+const express = require('express');
+const recipeData = require('./restaurants.json');
 
 const app = express();
 
@@ -14,4 +14,4 @@ app.use('/api/search', router);
 // Serve the static files from the React app
 // app.use(express.static(path.join(__dirname, 'client/build')));
 
-export default app;
+module.exports = app;

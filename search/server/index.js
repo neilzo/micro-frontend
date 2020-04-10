@@ -3,7 +3,7 @@ require('isomorphic-fetch');
 
 const app = require('./app');
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 app.listen(port);
 

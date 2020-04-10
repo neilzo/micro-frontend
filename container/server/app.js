@@ -1,4 +1,4 @@
-import express from 'express';
+const express = require('express');
 
 const app = express();
 
@@ -13,4 +13,4 @@ app.use('/api', router);
 // Serve the static files from the React app
 // app.use(express.static(path.join(__dirname, 'client/build')));
 
-export default app;
+module.exports = app;

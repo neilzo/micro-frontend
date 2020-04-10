@@ -2,7 +2,6 @@
   "name": "container",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -44,7 +43,7 @@
   "proxy": "http://localhost:5000",
   "devDependencies": {
     "@neilzo/eslint-config-microfrontend": "^1.0.0",
-    "babel-eslint": "8",
+    "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.10.1",
