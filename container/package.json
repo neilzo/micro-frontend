@@ -21,7 +21,8 @@
     "start:server": "nodemon -r dotenv/config ./server",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier --write --config ../.prettierrc ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,6 +41,7 @@
   },
   "proxy": "http://localhost:5000",
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.3",
+    "prettier": "2.0.4"
   }
 }

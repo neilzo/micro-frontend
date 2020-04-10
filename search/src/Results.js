@@ -2,18 +2,19 @@ import React, { useState, useEffect } from 'react';
 
 const fetchRecipes = () => {
   const host = process.env.REACT_APP_SEARCH_HOST;
-  return fetch(`${host}/api/search`)
-    .then(response => response.json())
+  return fetch(`${host}/api/search`).then((response) => response.json());
 };
 
 const Results = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    fetchRecipes().then(data => {
-      setRecipes(data.results);
-    }).catch(e => console.error('something went wrong', e));
-  });
+    fetchRecipes()
+      .then((data) => {
+        setRecipes(data.results);
+      })
+      .catch((e) => console.error('something went wrong', e));
+  }, [fetchRecipes]);
 
   if (!recipes.length) return null;
 
