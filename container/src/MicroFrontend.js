@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const addEntryPoint = (entry, host, scriptId, cb) => {
   const script = document.createElement('script');
@@ -13,7 +14,7 @@ const addEntryPoint = (entry, host, scriptId, cb) => {
 
 class MicroFrontend extends React.Component {
   componentDidMount() {
-    const { name, host, document } = this.props;
+    const { name, host } = this.props;
     const scriptId = `micro-frontend-script-${name}`;
 
     if (document.getElementById(scriptId)) {
@@ -25,31 +26,45 @@ class MicroFrontend extends React.Component {
       .then((res) => res.json())
       .then((manifest) => {
         addEntryPoint(manifest.entrypoints[0], host, scriptId);
-        addEntryPoint(manifest.entrypoints[1], host, `micro-frontend-script-${name}-1`, this.renderMicroFrontend);
+        addEntryPoint(
+          manifest.entrypoints[1],
+          host,
+          `micro-frontend-script-${name}-1`,
+          this.renderMicroFrontend,
+        );
         addEntryPoint(manifest.entrypoints[2], host, `micro-frontend-script-${name}-2`);
       });
   }
 
   componentWillUnmount() {
-    const { name, window } = this.props;
+    const { name } = this.props;
 
     window[`unmount${name}`](`${name}-container`);
   }
 
   renderMicroFrontend = () => {
-    const { name, window, history } = this.props;
+    const { name, history } = this.props;
 
     window[`render${name}`](`${name}-container`, history);
   };
 
   render() {
-    return <main id={`${this.props.name}-container`} />;
+    const { name } = this.props;
+
+    return <main id={`${name}-container`} />;
   }
 }
 
+MicroFrontend.propTypes = {
+  history: PropTypes.shape({}),
+  name: PropTypes.string,
+  host: PropTypes.string,
+};
+
 MicroFrontend.defaultProps = {
-  document,
-  window,
+  history: null,
+  name: '',
+  host: '',
 };
 
 export default MicroFrontend;
