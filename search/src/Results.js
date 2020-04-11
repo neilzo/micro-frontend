@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+
+import Card from './Card';
+
+import styles from './Results.module.css';
 
 const fetchRecipes = () => {
   const host = process.env.REACT_APP_SEARCH_HOST;
@@ -22,14 +25,18 @@ const Results = () => {
 
   return (
     <section>
-      <span>{resultNum} results</span>
-      {recipes.map((recipe) => (
-        <Link to={`/recipe/${recipe.id}`}>
-          <div key={recipe.id}>
-            <h3>{recipe.name}</h3>
-          </div>
-        </Link>
-      ))}
+      {/* <span>{resultNum} results</span> */}
+      <div className={styles.card__container}>
+        {recipes.map((recipe) => (
+          <Card
+            key={recipe.id}
+            id={recipe.id}
+            name={recipe.name}
+            imageSrc={recipe.image}
+            description={recipe.description}
+          />
+        ))}
+      </div>
     </section>
   );
 };

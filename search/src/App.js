@@ -12,9 +12,7 @@ const defaultHistory = createBrowserHistory();
 function App({ history }) {
   return (
     <Router history={history || defaultHistory}>
-      <div className={styles.app__container}>
-        <h1>Find a Recipe:</h1>
-        <input type="text" placeholder="E.g. steak, baked chicken, cookies..." />
+      <div className={styles.container}>
         <Results />
       </div>
     </Router>

@@ -2,15 +2,21 @@
   "results": [
     {
       "id": "1",
-      "name": "Baked Salmon"
+      "name": "Baked Salmon",
+      "description": "This salmon is to die for. Literally so good it's poisonous",
+      "image": "https://www.jessicagavin.com/wp-content/uploads/2019/01/baked-salmon-8-1200.jpg"
     },
     {
       "id": "2",
-      "name": "Miso Soup"
+      "name": "Miso Soup",
+      "description": "This recipe raises you up to umami heaven",
+      "image": "https://hikarimiso.com/wp-content/uploads/2018/02/Basic-Miso-Soup_M1nuteMiso_HikariMiso.jpg"
     },
     {
       "id": "3",
-      "name": "Pizza"
+      "name": "Pizza",
+      "description": "Brooklyn style aka the best style there is",
+      "image": "https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/Homemade-Pizza_EXPS_HCA20_376_E07_09_2b.jpg"
     }
   ]
 }

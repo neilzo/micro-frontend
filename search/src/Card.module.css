@@ -1,0 +1,35 @@
+.container {
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 0 0 1.5rem;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.02);
+  max-width: 20rem;
+  background-color: var(--color-white);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.image {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+.content__container {
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+
+.title {
+  font-size: 1.333rem;
+  margin-bottom: 0;
+}
+
+.description {
+  font-size: 1rem;
+}

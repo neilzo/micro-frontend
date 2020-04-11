@@ -12,7 +12,7 @@ const defaultHistory = createBrowserHistory();
 function App({ history }) {
   return (
     <Router history={history || defaultHistory}>
-      <div className={styles.app__container}>
+      <div className={styles.container}>
         <Route exact path="/recipe/:id" component={Recipe} />
       </div>
     </Router>

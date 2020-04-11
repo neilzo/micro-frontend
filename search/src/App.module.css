@@ -1,9 +1,15 @@
-.app__container {
-  background-color: salmon;
+.container {
   padding: 2rem;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
-  color: white;
   min-height: calc(100vh - 50px);
+}
+
+.input__search {
+  height: 45px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
 }

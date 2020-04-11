@@ -1,0 +1,9 @@
+.card__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card__container > a {
+  margin: 1rem;
+}
