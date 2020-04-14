@@ -23,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "prettier --write --config ../.prettierrc .",
+    "format": "prettier --write --config ../../.prettierrc .",
     "lint": "eslint --config .eslintrc.json --ext .js src/ --ext .js,.mjs server/"
   },
   "browserslist": {
