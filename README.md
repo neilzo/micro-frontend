@@ -6,8 +6,10 @@ A proof-of-concept for frontend `~microservices~`
 
 - Env config for dev server ports
 - Make a monorepo using Lerna
+  - Share common dev dependencies
 - Scaffold Redux
-- Share core deps (react, react-dom)
+    - Implement multiple stores and share access
+- Share core deps (react, react-dom, redux)
 - Add LESS/SCSS
 - Add account, login/out
 - prod build + deploy
