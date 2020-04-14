@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "add": "^2.0.6",
     "dotenv": "^8.2.0",
     "es6-promise": "^4.2.8",
     "express": "^4.17.1",
@@ -13,8 +14,12 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "yarn": "^1.22.4"
   },
   "scripts": {
     "start": "PORT=3000 react-scripts start",
@@ -22,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "prettier --write --config ../.prettierrc .",
+    "format": "prettier --write --config ../../.prettierrc .",
     "lint": "eslint --ext .js src/ --ext .js,.mjs server/"
   },
   "browserslist": {
@@ -50,6 +55,7 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",
     "nodemon": "^2.0.3",
-    "prettier": "2.0.4"
+    "prettier": "2.0.4",
+    "redux-devtools-extension": "^2.13.8"
   }
 }

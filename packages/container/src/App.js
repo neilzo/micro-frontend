@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
+import { fetchUser } from './actions/user';
 
 import MicroFrontend from './MicroFrontend';
 import Header from './Header';
@@ -20,17 +23,35 @@ Recipe.propTypes = {
   history: PropTypes.shape({}).isRequired,
 };
 
-const App = () => (
-  <BrowserRouter>
-    <>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={Search} />
-        <Route exact path="/recipe/:id" component={Recipe} />
-        <Route exact path="/about" component={About} />
-      </Switch>
-    </>
-  </BrowserRouter>
-);
+const App = ({ requestUser }) => {
+  useEffect(() => {
+    requestUser();
+  }, [requestUser]);
 
-export default App;
+  return (
+    <BrowserRouter>
+      <>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Search} />
+          <Route exact path="/recipe/:id" component={Recipe} />
+          <Route exact path="/about" component={About} />
+        </Switch>
+      </>
+    </BrowserRouter>
+  );
+};
+
+App.propTypes = {
+  requestUser: PropTypes.func,
+};
+
+App.defaultProps = {
+  requestUser: () => {},
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  requestUser: () => dispatch(fetchUser()),
+});
+
+export default connect(null, mapDispatchToProps)(App);
