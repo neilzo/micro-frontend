@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import loadAssets from './loadAssets';
 
 const addEntryPoint = (entry, host, scriptId, cb) => {
   const script = document.createElement('script');
@@ -12,6 +13,15 @@ const addEntryPoint = (entry, host, scriptId, cb) => {
   document.head.appendChild(script);
 };
 
+const loadCSS = (host, path) => {
+  const link = document.createElement('link');
+  link.href = `${host}/${path}`;
+  link.type = 'text/css';
+  link.rel = 'stylesheet';
+  link.media = 'screen,print';
+  document.head.append(link);
+};
+
 class MicroFrontend extends React.Component {
   componentDidMount() {
     const { name, host } = this.props;
@@ -22,9 +32,11 @@ class MicroFrontend extends React.Component {
       return;
     }
 
+    // filter js from manifest => in parallel: load css, load js => call cb
     fetch(`${host}/asset-manifest.json`)
       .then((res) => res.json())
       .then((manifest) => {
+        const assets = loadAssets(manifest.entrypoints);
         addEntryPoint(manifest.entrypoints[0], host, scriptId);
         addEntryPoint(
           manifest.entrypoints[1],
@@ -32,7 +44,8 @@ class MicroFrontend extends React.Component {
           `micro-frontend-script-${name}-1`,
           this.renderMicroFrontend,
         );
-        addEntryPoint(manifest.entrypoints[2], host, `micro-frontend-script-${name}-2`);
+        addEntryPoint(manifest.entrypoints[3], host, `micro-frontend-script-${name}-2`);
+        loadCSS(host, assets.css);
       });
   }
 

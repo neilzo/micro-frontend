@@ -9,6 +9,7 @@ A proof-of-concept for frontend `~microservices~`
   - Share common dev dependencies
 - Scaffold Redux
     - Implement and share access
+- Testing
 - Share core deps (react, react-dom, redux)
 - Add LESS/SCSS
 - Add account, login/out
