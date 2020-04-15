@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import styles from './Recipe.module.css';
+
 const fetchRecipe = (id) => {
   const host = process.env.REACT_APP_RECIPE_HOST;
   if (!id) throw Error('need id yo');
@@ -18,7 +20,7 @@ const Recipe = ({ match: { params } }) => {
   if (!recipe) return null;
 
   return (
-    <section>
+    <section className={styles.container}>
       <h1>{recipe.name}</h1>
       <h3>Ingredients</h3>
       <ul>
@@ -27,11 +29,11 @@ const Recipe = ({ match: { params } }) => {
         ))}
       </ul>
       <h3>Directions</h3>
-      <ul>
+      <ol>
         {recipe.directions.map((direction) => (
           <li key={direction}>{direction}</li>
         ))}
-      </ul>
+      </ol>
     </section>
   );
 };
