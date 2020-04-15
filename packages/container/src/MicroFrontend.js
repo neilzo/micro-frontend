@@ -25,7 +25,6 @@ class MicroFrontend extends React.Component {
     fetch(`${host}/asset-manifest.json`)
       .then((res) => res.json())
       .then((manifest) => {
-        console.log(manifest);
         addEntryPoint(manifest.entrypoints[0], host, scriptId);
         addEntryPoint(
           manifest.entrypoints[1],
@@ -44,9 +43,9 @@ class MicroFrontend extends React.Component {
   }
 
   renderMicroFrontend = () => {
-    const { name, history } = this.props;
+    const { name, history, store } = this.props;
 
-    window[`render${name}`](`${name}-container`, history);
+    window[`render${name}`](`${name}-container`, history, store);
   };
 
   render() {
@@ -60,12 +59,14 @@ MicroFrontend.propTypes = {
   history: PropTypes.shape({}),
   name: PropTypes.string,
   host: PropTypes.string,
+  store: PropTypes.shape({}),
 };
 
 MicroFrontend.defaultProps = {
   history: null,
   name: '',
   host: '',
+  store: null,
 };
 
 export default MicroFrontend;

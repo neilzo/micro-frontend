@@ -2,7 +2,13 @@
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 50px);
+}
+
+.greeting__container {
+  text-align: center;
+  margin-top: 10px;
+  padding: 3rem 1.5rem;
+  background-color: #00000014;
 }
 
 .input__search {

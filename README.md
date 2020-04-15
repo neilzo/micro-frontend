@@ -8,7 +8,7 @@ A proof-of-concept for frontend `~microservices~`
 - Make a monorepo using Lerna
   - Share common dev dependencies
 - Scaffold Redux
-    - Implement multiple stores and share access
+    - Implement and share access
 - Share core deps (react, react-dom, redux)
 - Add LESS/SCSS
 - Add account, login/out

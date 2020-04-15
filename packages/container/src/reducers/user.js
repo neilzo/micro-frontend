@@ -8,7 +8,9 @@ const initialState = {
 const user = (state = initialState, action) => {
   switch (action.type) {
     case ADD_USER: {
-      const { user: { name, email } } = action;
+      const {
+        user: { name, email },
+      } = action;
 
       return { ...state, name, email };
     }

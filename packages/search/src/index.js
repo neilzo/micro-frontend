@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-window.renderSearch = (containerId, history) => {
-  ReactDOM.render(<App history={history} />, document.getElementById(containerId));
+window.renderSearch = (containerId, history, store) => {
+  ReactDOM.render(
+    <Provider store={store}>
+      <App history={history} />
+    </Provider>,
+    document.getElementById(containerId),
+  );
   serviceWorker.unregister();
 };
 
