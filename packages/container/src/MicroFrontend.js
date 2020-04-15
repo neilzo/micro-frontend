@@ -37,14 +37,15 @@ class MicroFrontend extends React.Component {
       .then((res) => res.json())
       .then((manifest) => {
         const assets = loadAssets(manifest.entrypoints);
-        addEntryPoint(manifest.entrypoints[0], host, scriptId);
+        const { js } = assets;
+        addEntryPoint(js[0], host, scriptId);
         addEntryPoint(
-          manifest.entrypoints[1],
+          js[1],
           host,
           `micro-frontend-script-${name}-1`,
           this.renderMicroFrontend,
         );
-        addEntryPoint(manifest.entrypoints[3], host, `micro-frontend-script-${name}-2`);
+        addEntryPoint(js[2], host, `micro-frontend-script-${name}-2`);
         loadCSS(host, assets.css);
       });
   }

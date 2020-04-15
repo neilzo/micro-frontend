@@ -4,7 +4,10 @@
   "description": "Example of a micro frontend architecture",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bootstrap": "lerna bootstrap",
+    "start:webs": "lerna run start --stream",
+    "start:servers": "lerna run start:server --stream",
+    "build": "lerna run build && lerna run start:server --stream"
   },
   "keywords": [
     "frontend",
