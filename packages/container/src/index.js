@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store';
 
-import App from './App';
+import ConnectedApp from './App';
 import * as serviceWorker from './serviceWorker';
 
 import './index.css';
@@ -13,7 +13,7 @@ const store = configureStore();
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App store={store} />
+      <ConnectedApp store={store} />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),

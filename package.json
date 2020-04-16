@@ -7,7 +7,9 @@
     "bootstrap": "lerna bootstrap",
     "start:webs": "lerna run start --stream",
     "start:servers": "lerna run start:server --stream",
-    "build": "lerna run build && lerna run start:server --stream"
+    "build": "lerna run build && lerna run start:server --stream",
+    "lint:all": "lerna run lint --stream",
+    "format:all": "lerna run format --stream"
   },
   "keywords": [
     "frontend",

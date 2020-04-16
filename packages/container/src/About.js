@@ -12,7 +12,7 @@ const About = () => {
         SEO spam (no author&apos;s life stories here).
       </p>
 
-      <p>Our motto is: Find a recipe. Make it.</p>
+      <p data-testid="aboutMotto">Our motto is: Find a recipe. Make it.</p>
     </div>
   );
 };

@@ -11,6 +11,7 @@ import About from './About';
 
 const { REACT_APP_SEARCH_HOST: searchHost, REACT_APP_RECIPE_HOST: recipeHost } = process.env;
 
+// Sub apps
 const Search = ({ history, store }) => (
   <MicroFrontend history={history} host={searchHost} name="Search" store={store} />
 );
@@ -26,6 +27,7 @@ Recipe.propTypes = {
   history: PropTypes.shape({}).isRequired,
 };
 
+// Compose route w/ store
 const RouteWithStore = ({ component: Component, store }) => (
   <Route
     render={({ history, match, location }) => (
@@ -44,7 +46,7 @@ RouteWithStore.defaultProps = {
   store: null,
 };
 
-const App = ({ requestUser, store }) => {
+export function App({ requestUser, store }) {
   useEffect(() => {
     requestUser();
   }, [requestUser]);
@@ -57,11 +59,15 @@ const App = ({ requestUser, store }) => {
           <RouteWithStore exact path="/" component={Search} store={store} />
           <Route exact path="/recipe/:id" component={Recipe} />
           <Route exact path="/about" component={About} />
+          <Route
+            path="*"
+            component={() => <div>These are not the droids you&apos;re looking for</div>}
+          />
         </Switch>
       </>
     </BrowserRouter>
   );
-};
+}
 
 App.propTypes = {
   requestUser: PropTypes.func,

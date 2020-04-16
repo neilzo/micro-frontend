@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import loadAssets from './loadAssets';
+import separateAssets from './separateAssets';
 
 const addEntryPoint = (entry, host, scriptId, cb) => {
   const script = document.createElement('script');
@@ -36,15 +36,10 @@ class MicroFrontend extends React.Component {
     fetch(`${host}/asset-manifest.json`)
       .then((res) => res.json())
       .then((manifest) => {
-        const assets = loadAssets(manifest.entrypoints);
+        const assets = separateAssets(manifest.entrypoints);
         const { js } = assets;
         addEntryPoint(js[0], host, scriptId);
-        addEntryPoint(
-          js[1],
-          host,
-          `micro-frontend-script-${name}-1`,
-          this.renderMicroFrontend,
-        );
+        addEntryPoint(js[1], host, `micro-frontend-script-${name}-1`, this.renderMicroFrontend);
         addEntryPoint(js[2], host, `micro-frontend-script-${name}-2`);
         loadCSS(host, assets.css);
       });

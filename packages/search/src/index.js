@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import App from './App';
+import ConnectedApp from './App';
 import * as serviceWorker from './serviceWorker';
 
 window.renderSearch = (containerId, history, store) => {
   ReactDOM.render(
     <Provider store={store}>
-      <App history={history} />
+      <ConnectedApp history={history} />
     </Provider>,
     document.getElementById(containerId),
   );

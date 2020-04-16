@@ -10,7 +10,7 @@ import styles from './App.module.css';
 
 const defaultHistory = createBrowserHistory();
 
-function App({ history, user }) {
+export function App({ history, user }) {
   return (
     <Router history={history || defaultHistory}>
       <div className={styles.greeting__container}>

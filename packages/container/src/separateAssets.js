@@ -1,4 +1,4 @@
-const loadAssets = (entrypoints = []) => {
+const separateAssets = (entrypoints = []) => {
   const js = entrypoints.filter((path) => {
     return !/.+\.css/.test(path);
   });
@@ -8,4 +8,4 @@ const loadAssets = (entrypoints = []) => {
   return { js, css };
 };
 
-export default loadAssets;
+export default separateAssets;
