@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 
 import App from './App';
 
-jest.mock('./Recipe', () => 'Recipe');
+jest.mock('./Recipe', () => 'component-recipe');
 
 test('renders', () => {
   const { getByTestId } = render(<App />);

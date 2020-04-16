@@ -9,7 +9,8 @@
     "start:servers": "lerna run start:server --stream",
     "build": "lerna run build && lerna run start:server --stream",
     "lint:all": "lerna run lint --stream",
-    "format:all": "lerna run format --stream"
+    "format:all": "lerna run format --stream",
+    "test:all": "CI=true lerna run test --stream"
   },
   "keywords": [
     "frontend",
