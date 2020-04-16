@@ -4,6 +4,7 @@ import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { connect } from 'react-redux';
 
+import { getUser } from './selectors/user';
 import Results from './Results';
 
 import styles from './App.module.css';
@@ -37,7 +38,7 @@ App.defaultProps = {
 };
 
 const mapStateToProps = (state) => ({
-  user: state.user,
+  user: getUser(state),
 });
 
 export default connect(mapStateToProps)(App);

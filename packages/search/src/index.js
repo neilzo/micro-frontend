@@ -5,7 +5,12 @@ import { Provider } from 'react-redux';
 import ConnectedApp from './App';
 import * as serviceWorker from './serviceWorker';
 
-window.renderSearch = (containerId, history, store) => {
+const fallbackStore = {
+  getState() {},
+  subscribe() {},
+};
+
+window.renderSearch = (containerId, history, store = fallbackStore) => {
   ReactDOM.render(
     <Provider store={store}>
       <ConnectedApp history={history} />
