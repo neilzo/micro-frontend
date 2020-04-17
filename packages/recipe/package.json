@@ -17,8 +17,9 @@
     "react-scripts": "3.4.0"
   },
   "scripts": {
-    "start": "PORT=3002 react-scripts start",
-    "start:server": "nodemon -r dotenv/config ./server",
+    "dev:client": "PORT=3002 react-scripts start",
+    "dev:server": "nodemon -r dotenv/config ./server",
+    "start:server": "node -r dotenv/config ./server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
