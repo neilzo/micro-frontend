@@ -32,7 +32,9 @@ class MicroFrontend extends React.Component {
       return;
     }
 
-    // filter js from manifest => in parallel: load css, load js => call cb
+    // TODO: Harden this fetching => cb init
+    // This occasionally fails due to a race condition
+    // where the cb fires before all the JS has loaded
     fetch(`${host}/asset-manifest.json`)
       .then((res) => res.json())
       .then((manifest) => {

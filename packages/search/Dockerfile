@@ -22,6 +22,6 @@ ADD . /opt/app/
 # Install deps
 RUN yarn install && yarn run build
 
-EXPOSE 5000
+EXPOSE 5001
 
 ENTRYPOINT ["yarn", "start:server"]

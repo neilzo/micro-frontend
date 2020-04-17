@@ -17,6 +17,7 @@ A proof-of-concept for frontend `~microservices~`
   - [] Used by at least two apps: react, react-dom, redux, history, lodash
 - [] Add LESS/SCSS
 - [] Add account, login/out
+- [] Add Nginx
 - [] Prod build + deploy
   - [x] Build and serve static files
   - [] Experiment w/ Docker

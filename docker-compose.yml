@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  node-container:
+    build:
+      context: "./packages/container"
+      dockerfile: "Dockerfile"
+    ports:
+      - "5000:5000"
+    networks:
+      - micro-frontend-network
+  node-recipe:
+    build:
+      context: "./packages/recipe"
+      dockerfile: "Dockerfile"
+    ports:
+      - "5002:5002"
+    networks:
+      - micro-frontend-network
+  node-search:
+    build:
+      context: "./packages/search"
+      dockerfile: "Dockerfile"
+    ports:
+      - "5001:5001"
+    networks:
+      - micro-frontend-network
+
+networks:
+  micro-frontend-network:
+    driver: bridge
