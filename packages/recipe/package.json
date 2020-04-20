@@ -52,5 +52,5 @@
     "nodemon": "^2.0.3",
     "prettier": "2.0.4"
   },
-  "proxy": "http://localhost:5002"
+  "proxy": "http://recipe-server:5002"
 }

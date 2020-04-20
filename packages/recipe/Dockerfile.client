@@ -22,6 +22,6 @@ RUN yarn install
 # Add src code
 ADD . /opt/app/recipe
 
-EXPOSE 5002
+EXPOSE 3002
 
-CMD ["yarn", "dev:server"]
+CMD ["yarn", "dev:client"]

@@ -9,19 +9,19 @@ RUN touch ~/.bash_profile
 
 # Install Yarn
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.22.4
-# Install Lerna
-# RUN yarn global add lerna@3.20.2
 
 # Create app dir
-RUN mkdir -p /opt/app
-WORKDIR /opt/app
-
-# Add src code
-ADD . /opt/app/
+RUN mkdir -p /opt/app/search
+WORKDIR /opt/app/search
 
 # Install deps
-RUN yarn install && yarn run build
+COPY package.json ./
+COPY yarn.lock ./
+RUN yarn install
+
+# Add src code
+ADD . /opt/app/search
 
 EXPOSE 5001
 
-ENTRYPOINT ["yarn", "start:server"]
+CMD ["yarn", "dev:server"]

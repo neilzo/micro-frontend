@@ -44,7 +44,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "http://container-server:5000",
   "devDependencies": {
     "@neilzo/eslint-config-microfrontend": "^1.0.0",
     "babel-eslint": "^10.1.0",

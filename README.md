@@ -18,7 +18,11 @@ A proof-of-concept for frontend `~microservices~`
 - [] Add LESS/SCSS
 - [] Add account, login/out
 - [] Add Nginx
+- [] Experiment w/ Docker
+  - [x] Dockerfiles
+  - [x] Docker compose
+  - [x] Instead of serving prod version, enable dev w/ webpack dev servers
+  - [] Docker prod config
 - [] Prod build + deploy
   - [x] Build and serve static files
-  - [] Experiment w/ Docker
   - [] Ship it to the world
