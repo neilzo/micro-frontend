@@ -2,22 +2,38 @@
 
 A proof-of-concept for frontend `~microservices~`
 
+## Getting started
+
+Requires:
+- [Docker](https://www.docker.com/products/docker-desktop)
+
+1. `git clone` this repo
+2. Within the app dir, run `docker-compose build`
+3. Then `docker-compose up`
+4. Load `http://localhost:3000` in a browser
+5. Take over the world with its web-scale
+
 ## TODO:
 
-- [] Env config for dev server ports
+- [ ] Env config for dev server ports
 - [x] Make a monorepo using Lerna
-  - [] Share common dev dependencies
+  - [ ] Share common dev dependencies
 - [x] Scaffold Redux
     - [x] Implement and share access across sub-apps
-- [] Testing
+- [ ] Testing
   - [x] Scaffold tests
-  - [] Increase coverage to 75%
-  - [] Coverage tool?
-- [] Share core deps
-  - [] Used by at least two apps: react, react-dom, redux, history, lodash
-- [] Add LESS/SCSS
-- [] Add account, login/out
-- [] Prod build + deploy
+  - [ ] Increase coverage to 75%
+  - [ ] Coverage tool?
+- [ ] Share core deps
+  - [ ] Used by at least two apps: react, react-dom, redux, history, lodash
+- [ ] Add LESS/SCSS
+- [ ] Add account, login/out
+- [ ] Add Nginx
+- [ ] Experiment w/ Docker
+  - [x] Dockerfiles
+  - [x] Docker compose
+  - [x] Instead of serving prod version, enable dev w/ webpack dev servers
+  - [ ] Docker prod config
+- [ ] Prod build + deploy
   - [x] Build and serve static files
-  - [] Experiment w/ Docker
-  - [] Ship it to the world
+  - [ ] Ship it to the world

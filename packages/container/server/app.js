@@ -8,14 +8,14 @@ const router = express.Router();
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, '../build')));
 
-router.get('/', (req, res) => {
-  res.send('Container API / route');
+router.get('/test', (req, res) => {
+  res.send('Container API test route');
 });
+
+app.use('/api', router);
 
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
-
-app.use('/api', router);
 
 module.exports = app;

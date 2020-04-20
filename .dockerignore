@@ -1,0 +1,8 @@
+# Exclusions from docker image
+
+.git
+node_modules
+build
+*Dockerfile*
+*docker-compose*
+.dockerignore

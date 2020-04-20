@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "start:webs": "lerna run start --stream",
-    "start:servers": "lerna run start:server --stream",
-    "build": "lerna run build && lerna run start:server --stream",
+    "dev:clients": "lerna run dev:client --stream",
+    "dev:servers": "lerna run dev:server --stream",
+    "start": "lerna run start:server --stream",
+    "build": "lerna run build",
     "lint:all": "lerna run lint --stream",
     "format:all": "lerna run format --stream",
     "test:all": "CI=true lerna run test --stream"

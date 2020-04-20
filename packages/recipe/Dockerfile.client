@@ -1,0 +1,27 @@
+FROM node:13.13.0-alpine
+
+MAINTAINER Neil Daftary neilyo16[at]gmail.com
+
+# Install curl since alpine doesn't have it?
+RUN apk add --no-cache curl bash
+# Hmmm
+RUN touch ~/.bash_profile
+
+# Install Yarn
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.22.4
+
+# Create app dir
+RUN mkdir -p /opt/app/recipe
+WORKDIR /opt/app/recipe
+
+# Install deps
+COPY package.json ./
+COPY yarn.lock ./
+RUN yarn install
+
+# Add src code
+ADD . /opt/app/recipe
+
+EXPOSE 3002
+
+CMD ["yarn", "dev:client"]

@@ -21,8 +21,9 @@
     "redux": "^4.0.5"
   },
   "scripts": {
-    "start": "PORT=3001 react-scripts start",
-    "start:server": "nodemon -r dotenv/config ./server",
+    "dev:client": "PORT=3001 react-scripts start",
+    "dev:server": "nodemon -r dotenv/config ./server",
+    "start:server": "node -r dotenv/config ./server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -55,5 +56,5 @@
     "nodemon": "^2.0.3",
     "prettier": "2.0.4"
   },
-  "proxy": "http://localhost:5001"
+  "proxy": "http://search-server:5001"
 }
