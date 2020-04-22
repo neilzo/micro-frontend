@@ -23,10 +23,10 @@
     "yarn": "^1.22.4"
   },
   "scripts": {
-    "dev:client": "PORT=3000 react-scripts start",
+    "dev:client": "PORT=3000 react-app-rewired start",
     "dev:server": "nodemon -r dotenv/config ./server",
     "start:server": "node -r dotenv/config ./server",
-    "build": "react-scripts build",
+    "build": "react-app-rewired build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write --config ../../.prettierrc '{server,src,__{tests,mocks}__}/**/*.js'",
@@ -48,6 +48,7 @@
   "devDependencies": {
     "@neilzo/eslint-config-microfrontend": "^1.0.0",
     "babel-eslint": "^10.1.0",
+    "customize-cra": "^0.9.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.10.1",
@@ -58,6 +59,7 @@
     "eslint-plugin-react-hooks": "^2.5.1",
     "nodemon": "^2.0.3",
     "prettier": "2.0.4",
+    "react-app-rewired": "^2.1.5",
     "redux-devtools-extension": "^2.13.8"
   }
 }
