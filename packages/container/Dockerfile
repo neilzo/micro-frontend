@@ -2,13 +2,14 @@ FROM node:13.13.0-alpine
 
 MAINTAINER Neil Daftary neilyo16[at]gmail.com
 
-# Install curl since alpine doesn't have it?
+ARG YARN_VERSION=1.22.4
+
+# Install curl & bash since alpine doesn't have it
 RUN apk add --no-cache curl bash
-# Hmmm
-RUN touch ~/.bash_profile
 
 # Install Yarn
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.22.4
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version ${YARN_VERSION}
+RUN export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Create app dir
 RUN mkdir -p /opt/app/container

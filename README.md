@@ -2,6 +2,26 @@
 
 A proof-of-concept for frontend `~microservices~`
 
+## Overview
+
+This app is inspired by [Cam Jackson's micro-frontend article](https://martinfowler.com/articles/micro-frontends.html)
+with some changes and additions like:
+
+- Micro-frontends are backed by individual node apps
+- Global redux store implemented
+- Leverages Docker
+- Uses Lerna to manage the monorepo
+- No content server
+
+Architecture:
+```
+Container app
+| - Search (browse recipes) sub-app
+| | - Uses global redux store
+| - Recipe sub-app
+| | - Connected to Mongo
+```
+
 ## Getting started
 
 Requires:
@@ -17,7 +37,7 @@ Requires:
 
 - [ ] Env config for dev server ports
 - [ ] Shared deps
-  - [ ] Used by at least two apps: react, react-dom, redux, history, lodash
+  - [ ] Used by at least two apps: √react, √react-dom, redux, history, lodash
   - [ ] Share common dev dependencies w/ Lerna
 - [x] Scaffold Redux
     - [x] Implement and share access across sub-apps
@@ -26,14 +46,15 @@ Requires:
   - [ ] Increase coverage to 75%
   - [ ] Coverage tool?
 - [ ] Add LESS/SCSS
-- [ ] Add trivial DB interactions to show its use
-  - [ ] Add account, login/out
+- [x] Add trivial DB interactions to show its use
+  - [ ] Add auth (account, login/out)
 - [ ] Add Nginx
 - [x] Experiment w/ Docker
   - [x] Dockerfiles
   - [x] Docker compose
   - [x] Instead of serving prod version, enable dev w/ webpack dev servers
   - [x] Docker prod config
+  - [ ] Consolidate docker files
 - [ ] Prod build + deploy
   - [x] Build and serve static files
   - [ ] Ship it to the world
