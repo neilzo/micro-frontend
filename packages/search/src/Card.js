@@ -5,7 +5,7 @@ import cx from 'classnames';
 
 import styles from './Card.module.css';
 
-const Card = ({ id, name, imageSrc, description }) => {
+const Card = ({ id, name, imageSrc, description, author }) => {
   return (
     <Link to={`/recipe/${id}`} className={cx('card', styles.link)}>
       <div className={styles.container}>
@@ -13,6 +13,7 @@ const Card = ({ id, name, imageSrc, description }) => {
         <div className={styles.content__container}>
           <h2 className={styles.title}>{name}</h2>
           <p className={styles.description}>{description}</p>
+          <p className={styles.description}>By {author}</p>
         </div>
       </div>
     </Link>
@@ -24,6 +25,7 @@ Card.propTypes = {
   name: PropTypes.string,
   imageSrc: PropTypes.string,
   description: PropTypes.string,
+  author: PropTypes.string,
 };
 
 // Todo: update shared eslint config
@@ -33,6 +35,7 @@ Card.defaultProps = {
   name: '',
   imageSrc: '',
   description: '',
+  author: '',
 };
 
 export default Card;

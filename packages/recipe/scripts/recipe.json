@@ -16,7 +16,10 @@
       "In a medium glass bowl, prepare marinade by mixing garlic, light olive oil, basil, salt, pepper, lemon juice and parsley. Place salmon fillets in a medium glass baking dish, and cover with the marinade. Marinate in the refrigerator about 1 hour, turning occasionally.",
       "Preheat oven to 375 degrees F (190 degrees C).",
       "Place fillets in aluminum foil, cover with marinade, and seal. Place sealed salmon in the glass dish, and bake 35 to 45 minutes, until easily flaked with a fork."
-    ]
+    ],
+    "description": "This dish has got that yummy, yummy, yum, yummy.",
+    "author": "Stella Lu",
+    "servings": 4
   },
   "2": {
     "id": "2",
@@ -30,7 +33,10 @@
     ],
     "directions": [
       "In a medium saucepan over medium-high heat, combine dashi granules and water; bring to a boil. Reduce heat to medium, and whisk in the miso paste. Stir in tofu. Separate the layers of the green onions, and add them to the soup. Simmer gently for 2 to 3 minutes before serving."
-    ]
+    ],
+    "description": "After you make this you'll be a umami mami",
+    "author": "Stella Lu",
+    "servings": 4
   },
   "3": {
     "id": "3",
@@ -54,6 +60,9 @@
       "Using one ball of dough at a time, lightly dust the dough with flour, and stretch gradually until it is about 14 inches in diameter, or about as big around as the pizza stone. Place on the floured peel. Place thin slices of mozzarella over the crust, then grind a liberal amount of black pepper over it. Sprinkle with dried oregano. Randomly arrange crushed tomatoes, leaving some empty areas. Drizzle olive oil over the top.",
       "With a quick back and forth jerk, make sure the dough will release from the peel easily. Place the tip of the peel at the back of the preheated pizza stone, and remove peel so that the pizza is left on the stone.",
       "Bake for 4 to 6 minutes in the preheated oven, or until the crust begins to brown. Remove from the oven by sliding the peel beneath the pizza. Sprinkle a few basil leaves randomly over the pizza. Cut into wedges and serve."
-    ]
+    ],
+    "description": "The One Pizza to Rule Them All",
+    "author": "Stella Lu",
+    "servings": 4
   }
 }

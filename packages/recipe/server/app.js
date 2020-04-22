@@ -1,6 +1,8 @@
+require('./db');
+
 const express = require('express');
 const path = require('path');
-const recipes = require('./recipe.json');
+const recipeController = require('./controllers/recipe');
 
 const app = express();
 
@@ -15,13 +17,12 @@ app.use((req, res, next) => {
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, '../build')));
 
+router.get('/', recipeController.getAllRecipes);
+
 router.get('/:id', (req, res) => {
   const recipeId = req.params.id;
-  const recipe = recipes[recipeId];
 
-  if (!recipe) res.status(404).send('Recipe not found');
-
-  res.send(recipe);
+  recipeController.getRecipeById(recipeId, req, res);
 });
 
 app.use('/api/recipe', router);
