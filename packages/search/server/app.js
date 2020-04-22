@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, '../build')));
 
 router.get('/', (req, res) => {
   return fetch(`${RECIPE_SERVER_HOST}/api/recipe`)
-    .then(response => response.json())
+    .then((response) => response.json())
     .then((data) => res.send(data))
     .catch((err) => {
       console.log(err);

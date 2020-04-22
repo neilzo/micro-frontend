@@ -4,7 +4,7 @@ const { MONGO_USERNAME, MONGO_PASSWORD, MONGO_HOSTNAME, MONGO_PORT } = process.e
 
 const options = {
   useNewUrlParser: true,
-  connectTimeoutMS: 10000
+  connectTimeoutMS: 10000,
 };
 
 const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}`;
