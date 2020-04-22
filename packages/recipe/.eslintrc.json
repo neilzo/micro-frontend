@@ -4,5 +4,7 @@
   "globals": {},
   "parserOptions": {},
   "plugins": [],
-  "rules": {}
+  "rules": {
+    "react/jsx-one-expression-per-line": "off"
+  }
 }

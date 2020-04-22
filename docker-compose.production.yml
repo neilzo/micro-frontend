@@ -1,14 +1,26 @@
 version: "3"
 
 services:
+  database:
+    image: mongo:4.2.5-bionic
+    container_name: "database"
+    env_file: .env.production
+    environment:
+      - MONGO_USERNAME=$MONGO_USERNAME
+      - MONGO_PASSWORD=$MONGO_PASSWORD
+    ports:
+      - 27017:27017
+    volumes:
+      - db_data:/data/db
+      - ./scripts/initMongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
+    restart: always
+    networks:
+      - micro-frontend-network
   container-server:
     build:
       context: "./packages/container"
       dockerfile: "Dockerfile.production"
     container_name: "container-server"
-    volumes:
-      - "./packages/container:/opt/app/container/"
-      - "/opt/app/container/node_modules"
     ports:
       - "5000:5000"
     networks:
@@ -18,11 +30,18 @@ services:
     build:
       context: "./packages/recipe"
       dockerfile: "Dockerfile.production"
-    volumes:
-      - "./packages/recipe:/opt/app/recipe/"
-      - "/opt/app/recipe/node_modules"
+    depends_on:
+      - database
+    env_file: .env.production
+    environment:
+      - MONGO_USERNAME=$MONGO_USERNAME
+      - MONGO_PASSWORD=$MONGO_PASSWORD
+      - MONGO_HOSTNAME=database
+      - MONGO_PORT=$MONGO_PORT
+      - MONGO_DB=$MONGO_DB
     ports:
       - "5002:5002"
+    restart: always
     networks:
       - micro-frontend-network
   search-server:
@@ -30,14 +49,15 @@ services:
     build:
       context: "./packages/search"
       dockerfile: "Dockerfile.production"
-    volumes:
-      - "./packages/search:/opt/app/search/"
-      - "/opt/app/search/node_modules"
     ports:
       - "5001:5001"
+    restart: always
     networks:
       - micro-frontend-network
 
 networks:
   micro-frontend-network:
     driver: bridge
+
+volumes:
+  db_data:

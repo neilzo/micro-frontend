@@ -22,6 +22,16 @@ const Recipe = ({ match: { params } }) => {
   return (
     <section className={styles.container}>
       <h1>{recipe.name}</h1>
+      <p>By {recipe.author}</p>
+      <div>
+        <b>Time: </b>
+        <span>{recipe.prep_time}</span>
+      </div>
+      <div>
+        <b>Servings: </b>
+        <span>{recipe.servings}</span>
+      </div>
+      <p>{recipe.description}</p>
       <h3>Ingredients</h3>
       <ul>
         {recipe.ingredients.map((ingredient) => (
@@ -34,6 +44,7 @@ const Recipe = ({ match: { params } }) => {
           <li key={direction}>{direction}</li>
         ))}
       </ol>
+      <img src={recipe.image_url} alt="Recipe look" className={styles.image} />
     </section>
   );
 };

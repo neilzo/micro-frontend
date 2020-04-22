@@ -1,12 +1,24 @@
 version: "3"
 
 services:
+  database:
+    image: mongo:4.2.5-bionic
+    container_name: "database"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - 27017:27017
+    volumes:
+      - db_data:/data/db
+      - ./scripts/initMongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
+    networks:
+      - micro-frontend-network
   container-server:
     build:
       context: "./packages/container"
       dockerfile: "Dockerfile"
     container_name: "container-server"
-    command: yarn dev:server
     volumes:
       - "./packages/container:/opt/app/container/"
       - "/opt/app/container/node_modules"
@@ -19,7 +31,6 @@ services:
       context: "./packages/container"
       dockerfile: "Dockerfile.client"
     container_name: "container-client"
-    command: yarn dev:client
     volumes:
       - "./packages/container:/opt/app/container/"
       - "/opt/app/container/node_modules"
@@ -35,8 +46,17 @@ services:
     volumes:
       - "./packages/recipe:/opt/app/recipe/"
       - "/opt/app/recipe/node_modules"
+    env_file: .env
+    environment:
+      - MONGO_USERNAME=$MONGO_USERNAME
+      - MONGO_PASSWORD=$MONGO_PASSWORD
+      - MONGO_HOSTNAME=database
+      - MONGO_PORT=$MONGO_PORT
+      - MONGO_DB=$MONGO_DB
     ports:
       - "5002:5002"
+    depends_on:
+      - database
     networks:
       - micro-frontend-network
   recipe-client:
@@ -81,3 +101,6 @@ services:
 networks:
   micro-frontend-network:
     driver: bridge
+
+volumes:
+  db_data:

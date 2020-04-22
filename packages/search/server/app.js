@@ -1,10 +1,11 @@
 const express = require('express');
 const path = require('path');
-const recipeData = require('./search.json');
 
 const app = express();
 
 const router = express.Router();
+
+const { RECIPE_SERVER_HOST } = process.env;
 
 // Enable CORS for fetching asset manifests across origins
 app.use((req, res, next) => {
@@ -16,7 +17,13 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, '../build')));
 
 router.get('/', (req, res) => {
-  res.send(recipeData);
+  return fetch(`${RECIPE_SERVER_HOST}/api/recipe`)
+    .then((response) => response.json())
+    .then((data) => res.send(data))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send('ERRORZ');
+    });
 });
 
 app.use('/api/search', router);

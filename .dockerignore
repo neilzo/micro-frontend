@@ -6,3 +6,4 @@ build
 *Dockerfile*
 *docker-compose*
 .dockerignore
+.env

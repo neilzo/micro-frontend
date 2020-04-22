@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import get from 'lodash/get';
 
 import Card from './Card';
 
 import styles from './Results.module.css';
 
+// TODO: move fetch/view fns to separate file
+const recipeView = (data) => ({
+  id: get(data, '_id'),
+  name: get(data, 'name'),
+  image: get(data, 'image_url'),
+  description: get(data, 'description'),
+  author: get(data, 'author'),
+});
+
 const fetchRecipes = () => {
   const host = process.env.REACT_APP_SEARCH_HOST;
-  return fetch(`${host}/api/search`).then((response) => response.json());
+  return fetch(`${host}/api/search`)
+    .then((response) => response.json())
+    .then((recipes) => recipes.map(recipeView));
 };
 
 const Results = () => {
@@ -16,7 +28,7 @@ const Results = () => {
   useEffect(() => {
     fetchRecipes()
       .then((data) => {
-        setRecipes(data.results);
+        setRecipes(data);
       })
       .catch((e) => console.error('something went wrong', e));
   }, []);
@@ -34,6 +46,7 @@ const Results = () => {
             name={recipe.name}
             imageSrc={recipe.image}
             description={recipe.description}
+            author={recipe.author}
           />
         ))}
       </div>
