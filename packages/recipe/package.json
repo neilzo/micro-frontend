@@ -25,7 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write --config ../../.prettierrc '{server,src,__{tests,mocks}__}/**/*.js'",
-    "lint": "eslint --config .eslintrc.json --ext .js src/ --ext .js,.mjs server/"
+    "lint": "eslint --ext .js src/ --ext .js server/"
   },
   "browserslist": {
     "production": [
