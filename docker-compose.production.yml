@@ -1,0 +1,43 @@
+version: "3"
+
+services:
+  container-server:
+    build:
+      context: "./packages/container"
+      dockerfile: "Dockerfile.production"
+    container_name: "container-server"
+    volumes:
+      - "./packages/container:/opt/app/container/"
+      - "/opt/app/container/node_modules"
+    ports:
+      - "5000:5000"
+    networks:
+      - micro-frontend-network
+  recipe-server:
+    container_name: "recipe-server"
+    build:
+      context: "./packages/recipe"
+      dockerfile: "Dockerfile.production"
+    volumes:
+      - "./packages/recipe:/opt/app/recipe/"
+      - "/opt/app/recipe/node_modules"
+    ports:
+      - "5002:5002"
+    networks:
+      - micro-frontend-network
+  search-server:
+    container_name: "search-server"
+    build:
+      context: "./packages/search"
+      dockerfile: "Dockerfile.production"
+    volumes:
+      - "./packages/search:/opt/app/search/"
+      - "/opt/app/search/node_modules"
+    ports:
+      - "5001:5001"
+    networks:
+      - micro-frontend-network
+
+networks:
+  micro-frontend-network:
+    driver: bridge
