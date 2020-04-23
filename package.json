@@ -1,5 +1,6 @@
 {
   "name": "my_micro_fe",
+  "private": true,
   "version": "1.0.0",
   "description": "Example of a micro frontend architecture",
   "main": "index.js",
@@ -7,12 +8,15 @@
     "bootstrap": "lerna bootstrap",
     "dev:clients": "lerna run dev:client --stream",
     "dev:servers": "lerna run dev:server --stream",
-    "start": "lerna run start:server --stream",
+    "start": "lerna run",
     "build": "lerna run build",
     "lint:all": "lerna run lint --stream",
     "format:all": "lerna run format --stream",
     "test:all": "CI=true lerna run test --stream"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "keywords": [
     "frontend",
     "react",

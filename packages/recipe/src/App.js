@@ -27,18 +27,12 @@ function App({ history }) {
                   {isDev && (
                     <div>
                       <p>You may have loaded the recipe app in standalone mode</p>
-                      Quick links to recipes:
-                      <ul>
-                        <li>
-                          <Link to="recipe/1">Recipe 1</Link>
-                        </li>
-                        <li>
-                          <Link to="recipe/2">Recipe 2</Link>
-                        </li>
-                        <li>
-                          <Link to="recipe/3">Recipe 3</Link>
-                        </li>
-                      </ul>
+                      <p>To load a recipe:</p>
+                      <ol>
+                        <li>Hit <code>http://localhost:5001/api/search</code> in the browser</li>
+                        <li>Copy a recipe object <code>id</code></li>
+                        <li>Load <code>http://localhost:3000/recipe/__copiedId__</code></li>
+                      </ol>
                     </div>
                   )}
                 </div>

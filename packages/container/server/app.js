@@ -9,7 +9,7 @@ const router = express.Router();
 app.use(express.static(path.join(__dirname, '../build')));
 
 router.get('/test', (req, res) => {
-  res.send('Container API test route');
+  res.send('Container API test route v3');
 });
 
 app.use('/api', router);

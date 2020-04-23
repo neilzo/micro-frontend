@@ -10,7 +10,7 @@ with some changes and additions like:
 - Micro-frontends are backed by individual node apps
 - Global redux store implemented
 - Leverages Docker
-- Uses Lerna to manage the monorepo
+- Uses Lerna & Yarn workspaces to manage the monorepo
 - No content server
 
 Architecture:
@@ -55,6 +55,7 @@ Requires:
   - [x] Instead of serving prod version, enable dev w/ webpack dev servers
   - [x] Docker prod config
   - [ ] Consolidate docker files
+  - [ ] Use multi-stage builds to trim image size
 - [ ] Prod build + deploy
   - [x] Build and serve static files
   - [ ] Ship it to the world

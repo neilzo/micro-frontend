@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Api from '@micro-frontend/shared/Api';
+
 import separateAssets from './separateAssets';
 
 const addEntryPoint = (entry, host, scriptId, cb) => {
@@ -35,8 +37,7 @@ class MicroFrontend extends React.Component {
     // TODO: Harden this fetching => cb init
     // This occasionally fails due to a race condition
     // where the cb fires before all the JS has loaded
-    fetch(`${host}/asset-manifest.json`)
-      .then((res) => res.json())
+    Api.get(`${host}/asset-manifest.json`)
       .then((manifest) => {
         const assets = separateAssets(manifest.entrypoints);
         const { js } = assets;

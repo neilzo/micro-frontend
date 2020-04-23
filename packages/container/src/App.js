@@ -55,6 +55,7 @@ export function App({ requestUser, store }) {
     <BrowserRouter>
       <>
         <Header />
+        <h1>abcdefghij</h1>
         <Switch>
           <RouteWithStore exact path="/" component={Search} store={store} />
           <Route exact path="/recipe/:id" component={Recipe} />

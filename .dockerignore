@@ -1,6 +1,7 @@
 # Exclusions from docker image
 
 .git
+.idea
 node_modules
 build
 *Dockerfile*
