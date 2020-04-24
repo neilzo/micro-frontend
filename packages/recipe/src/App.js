@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Router, Route, Switch, Link } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 import Recipe from './Recipe';
@@ -29,9 +29,15 @@ function App({ history }) {
                       <p>You may have loaded the recipe app in standalone mode</p>
                       <p>To load a recipe:</p>
                       <ol>
-                        <li>Hit <code>http://localhost:5001/api/search</code> in the browser</li>
-                        <li>Copy a recipe object <code>id</code></li>
-                        <li>Load <code>http://localhost:3000/recipe/__copiedId__</code></li>
+                        <li>
+                          Hit <code>http://localhost:5001/api/search</code> in the browser
+                        </li>
+                        <li>
+                          Copy a recipe object <code>id</code>
+                        </li>
+                        <li>
+                          Load <code>http://localhost:3000/recipe/__copiedId__</code>
+                        </li>
                       </ol>
                     </div>
                   )}

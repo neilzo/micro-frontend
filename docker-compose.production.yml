@@ -18,8 +18,11 @@ services:
       - micro-frontend-network
   container-server:
     build:
-      context: "./packages/container"
+      context: .
       dockerfile: "Dockerfile.production"
+      args:
+        APP_NAME: container
+    command: yarn start --scope container start:server --stream
     container_name: "container-server"
     ports:
       - "5000:5000"
@@ -28,8 +31,11 @@ services:
   recipe-server:
     container_name: "recipe-server"
     build:
-      context: "./packages/recipe"
+      context: .
       dockerfile: "Dockerfile.production"
+      args:
+        APP_NAME: recipe
+    command: yarn start --scope recipe start:server --stream
     depends_on:
       - database
     env_file: .env.production
@@ -47,8 +53,11 @@ services:
   search-server:
     container_name: "search-server"
     build:
-      context: "./packages/search"
+      context: .
       dockerfile: "Dockerfile.production"
+      args:
+        APP_NAME: search
+    command: yarn start --scope search start:server --stream
     ports:
       - "5001:5001"
     restart: always

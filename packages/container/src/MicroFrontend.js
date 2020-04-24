@@ -37,15 +37,14 @@ class MicroFrontend extends React.Component {
     // TODO: Harden this fetching => cb init
     // This occasionally fails due to a race condition
     // where the cb fires before all the JS has loaded
-    Api.get(`${host}/asset-manifest.json`)
-      .then((manifest) => {
-        const assets = separateAssets(manifest.entrypoints);
-        const { js } = assets;
-        addEntryPoint(js[0], host, scriptId);
-        addEntryPoint(js[1], host, `micro-frontend-script-${name}-1`, this.renderMicroFrontend);
-        addEntryPoint(js[2], host, `micro-frontend-script-${name}-2`);
-        loadCSS(host, assets.css);
-      });
+    Api.get(`${host}/asset-manifest.json`).then((manifest) => {
+      const assets = separateAssets(manifest.entrypoints);
+      const { js } = assets;
+      addEntryPoint(js[0], host, scriptId);
+      addEntryPoint(js[1], host, `micro-frontend-script-${name}-1`, this.renderMicroFrontend);
+      addEntryPoint(js[2], host, `micro-frontend-script-${name}-2`);
+      loadCSS(host, assets.css);
+    });
   }
 
   componentWillUnmount() {

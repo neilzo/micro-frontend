@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import get from 'lodash/get';
+import Api from '@micro-frontend/shared/Api';
 
 import Card from './Card';
 
@@ -15,9 +16,12 @@ const recipeView = (data) => ({
 });
 
 const fetchRecipes = () => {
-  const host = process.env.REACT_APP_SEARCH_HOST;
-  return fetch(`${host}/api/search`)
-    .then((response) => response.json())
+  const url =
+    process.env.NODE_ENV === 'development'
+      ? process.env.REACT_APP_SEARCH_HOST
+      : `${process.env.REACT_APP_SEARCH_SERVER_HOST}/api/search`;
+
+  return Api.get(url)
     .then((recipes) => recipes.map(recipeView));
 };
 
