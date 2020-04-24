@@ -33,6 +33,11 @@ Requires:
 4. Load `http://localhost:3000` in a browser
 5. Take over the world with its web-scale
 
+To seed recipes, run:
+```
+docker exec -it recipe-server node packages/recipe/scripts/seedRecipes.js
+```
+
 ## TODO:
 
 - [ ] Env config for dev server ports
@@ -54,8 +59,9 @@ Requires:
   - [x] Docker compose
   - [x] Instead of serving prod version, enable dev w/ webpack dev servers
   - [x] Docker prod config
-  - [ ] Consolidate docker files
-  - [ ] Use multi-stage builds to trim image size
+  - [x] Consolidate docker files
+  - [x] Fix classnames not being installed :confused:
+  - [x] Use multi-stage builds to trim image size
 - [ ] Prod build + deploy
   - [x] Build and serve static files
   - [ ] Ship it to the world
