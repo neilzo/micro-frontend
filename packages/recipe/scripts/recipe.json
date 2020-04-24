@@ -19,7 +19,8 @@
     ],
     "description": "This dish has got that yummy, yummy, yum, yummy.",
     "author": "Stella Lu",
-    "servings": 4
+    "servings": 4,
+    "image_url": "https://www.jessicagavin.com/wp-content/uploads/2019/01/baked-salmon-8-1200.jpg"
   },
   "2": {
     "id": "2",
@@ -36,7 +37,8 @@
     ],
     "description": "After you make this you'll be a umami mami",
     "author": "Stella Lu",
-    "servings": 4
+    "servings": 4,
+    "image_url": "https://hikarimiso.com/wp-content/uploads/2018/02/Basic-Miso-Soup_M1nuteMiso_HikariMiso.jpg"
   },
   "3": {
     "id": "3",
@@ -63,6 +65,7 @@
     ],
     "description": "The One Pizza to Rule Them All",
     "author": "Stella Lu",
-    "servings": 4
+    "servings": 4,
+    "image_url": "https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/Homemade-Pizza_EXPS_HCA20_376_E07_09_2b.jpg"
   }
 }

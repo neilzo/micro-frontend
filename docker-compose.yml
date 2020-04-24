@@ -16,24 +16,34 @@ services:
       - micro-frontend-network
   container-server:
     build:
-      context: "./packages/container"
+      context: .
       dockerfile: "Dockerfile"
+      args:
+        APP_NAME: container
+    command: yarn start --scope container dev:server --stream
     container_name: "container-server"
     volumes:
-      - "./packages/container:/opt/app/container/"
-      - "/opt/app/container/node_modules"
+      - "./packages/container:/opt/app/packages/container"
+      - "/opt/app/packages/container/node_modules"
+      - "./packages/shared:/opt/app/packages/shared"
+      - "/opt/app/node_modules"
     ports:
       - "5000:5000"
     networks:
       - micro-frontend-network
   container-client:
-    build:
-      context: "./packages/container"
-      dockerfile: "Dockerfile.client"
     container_name: "container-client"
+    build:
+      context: .
+      dockerfile: "Dockerfile"
+      args:
+        - APP_NAME=container
+    command: yarn start --scope container dev:client --stream
     volumes:
-      - "./packages/container:/opt/app/container/"
-      - "/opt/app/container/node_modules"
+      - "/opt/app/node_modules"
+      - "/opt/app/packages/container/node_modules"
+      - "./packages/container:/opt/app/packages/container"
+      - "./packages/shared:/opt/app/packages/shared"
     ports:
       - "3000:3000"
     networks:
@@ -41,11 +51,16 @@ services:
   recipe-server:
     container_name: "recipe-server"
     build:
-      context: "./packages/recipe"
+      context: .
       dockerfile: "Dockerfile"
+      args:
+        - APP_NAME=recipe
+    command: yarn start --scope recipe dev:server --stream
     volumes:
-      - "./packages/recipe:/opt/app/recipe/"
-      - "/opt/app/recipe/node_modules"
+      - "/opt/app/node_modules"
+      - "/opt/app/packages/recipe/node_modules"
+      - "./packages/recipe:/opt/app/packages/recipe"
+      - "./packages/shared:/opt/app/packages/shared"
     env_file: .env
     environment:
       - MONGO_USERNAME=$MONGO_USERNAME
@@ -62,11 +77,16 @@ services:
   recipe-client:
     container_name: "recipe-client"
     build:
-      context: "./packages/recipe"
-      dockerfile: "Dockerfile.client"
+      context: .
+      dockerfile: "Dockerfile"
+      args:
+        - APP_NAME=recipe
+    command: yarn start --scope recipe dev:client --stream
     volumes:
-      - "./packages/recipe:/opt/app/recipe/"
-      - "/opt/app/recipe/node_modules"
+      - "/opt/app/node_modules"
+      - "/opt/app/packages/recipe/node_modules"
+      - "./packages/recipe:/opt/app/packages/recipe"
+      - "./packages/shared:/opt/app/packages/shared"
     ports:
       - "3002:3002"
     networks:
@@ -74,11 +94,16 @@ services:
   search-server:
     container_name: "search-server"
     build:
-      context: "./packages/search"
+      context: .
       dockerfile: "Dockerfile"
+      args:
+        - APP_NAME=search
+    command: yarn start --scope search dev:server --stream
     volumes:
-      - "./packages/search:/opt/app/search/"
-      - "/opt/app/search/node_modules"
+      - "/opt/app/node_modules"
+      - "/opt/app/packages/search/node_modules"
+      - "./packages/search:/opt/app/packages/search"
+      - "./packages/shared:/opt/app/packages/shared"
     ports:
       - "5001:5001"
     networks:
@@ -86,11 +111,16 @@ services:
   search-client:
     container_name: "search-client"
     build:
-      context: "./packages/search"
-      dockerfile: "Dockerfile.client"
+      context: .
+      dockerfile: "Dockerfile"
+      args:
+        - APP_NAME=search
+    command: yarn start --scope search dev:client --stream
     volumes:
-      - "./packages/search:/opt/app/search/"
-      - "/opt/app/search/node_modules"
+      - "/opt/app/node_modules"
+      - "/opt/app/packages/search/node_modules"
+      - "./packages/search:/opt/app/packages/search"
+      - "./packages/shared:/opt/app/packages/shared"
     depends_on:
       - search-server
     ports:

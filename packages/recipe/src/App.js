@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Router, Route, Switch, Link } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 import Recipe from './Recipe';
@@ -27,18 +27,18 @@ function App({ history }) {
                   {isDev && (
                     <div>
                       <p>You may have loaded the recipe app in standalone mode</p>
-                      Quick links to recipes:
-                      <ul>
+                      <p>To load a recipe:</p>
+                      <ol>
                         <li>
-                          <Link to="recipe/1">Recipe 1</Link>
+                          Hit <code>http://localhost:5001/api/search</code> in the browser
                         </li>
                         <li>
-                          <Link to="recipe/2">Recipe 2</Link>
+                          Copy a recipe object <code>id</code>
                         </li>
                         <li>
-                          <Link to="recipe/3">Recipe 3</Link>
+                          Load <code>http://localhost:3000/recipe/__copiedId__</code>
                         </li>
-                      </ul>
+                      </ol>
                     </div>
                   )}
                 </div>

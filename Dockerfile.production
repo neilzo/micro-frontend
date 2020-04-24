@@ -1,0 +1,51 @@
+FROM node:13.13.0-alpine as node
+MAINTAINER Neil Daftary neilyo16[at]gmail.com
+
+# Image for settings up our monorepo
+FROM node as builder
+ARG YARN_VERSION=1.22.4
+ARG APP_NAME
+
+# Install curl since alpine doesn't have it
+RUN apk add --no-cache curl bash
+
+# Hmmm
+RUN touch ~/.bash_profile
+
+# Install Yarn
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.22.4
+
+# Create app dir
+RUN mkdir -p /opt/app/
+WORKDIR /opt/app/
+
+# Install deps
+COPY package.json ./
+COPY yarn.lock ./
+COPY lerna.json ./
+
+COPY packages/shared/ ./packages/shared
+COPY packages/${APP_NAME} ./packages/${APP_NAME}
+
+RUN yarn install
+
+RUN yarn build --scope ${APP_NAME} --stream
+
+# Only build the project with the required src code
+FROM node as final
+ARG APP_NAME
+ENV APP = ${APP_NAME}
+
+WORKDIR /opt/app
+
+COPY --from=builder opt/app/node_modules ./node_modules
+COPY --from=builder opt/app/package.json .
+COPY --from=builder opt/app/yarn.lock .
+COPY --from=builder opt/app/lerna.json .
+# COPY --from=builder opt/app/packages/shared ./packages/shared
+COPY --from=builder opt/app/packages/${APP_NAME}/build ./packages/${APP_NAME}/build
+COPY --from=builder opt/app/packages/${APP_NAME}/.env.production ./packages/${APP_NAME}/.env.production
+COPY --from=builder opt/app/packages/${APP_NAME}/package.json ./packages/${APP_NAME}/package.json
+COPY --from=builder opt/app/packages/${APP_NAME}/server ./packages/${APP_NAME}/server
+
+CMD ["yarn", "start", "--scope", "${APP}", "start:server"]

@@ -4,5 +4,6 @@ module.exports = override(
   addWebpackExternals({
     react: 'React',
     'react-dom': 'ReactDOM',
+    'classNames': 'cx',
   }),
 );
