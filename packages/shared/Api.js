@@ -5,7 +5,7 @@ class Api {
       credentials: 'same-origin',
       ...options,
     };
-    console.log('get req');
+
     return fetch(url, combinedOptions).then(Api.handleResponse).catch(Api.handleErrors);
   }
   static handleResponse(response) {

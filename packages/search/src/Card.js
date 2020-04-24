@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import cx from 'classnames';
 
 import styles from './Card.module.css';
 
 const Card = ({ id, name, imageSrc, description, author }) => {
   return (
-    <Link to={`/recipe/${id}`} className={cx('card', styles.link)}>
+    <Link to={`/recipe/${id}`} className={styles.link}>
       <div className={styles.container}>
         <img src={imageSrc} className={styles.image} alt="recipe preview" />
         <div className={styles.content__container}>

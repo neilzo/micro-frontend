@@ -19,12 +19,13 @@ services:
       context: .
       dockerfile: "Dockerfile"
       args:
-        - APP_NAME=container
+        APP_NAME: container
     command: yarn start --scope container dev:server --stream
     container_name: "container-server"
     volumes:
       - "./packages/container:/opt/app/packages/container"
       - "/opt/app/packages/container/node_modules"
+      - "./packages/shared:/opt/app/packages/shared"
       - "/opt/app/node_modules"
     ports:
       - "5000:5000"
@@ -53,11 +54,13 @@ services:
       context: .
       dockerfile: "Dockerfile"
       args:
-        - APP_NAME=container
+        - APP_NAME=recipe
     command: yarn start --scope recipe dev:server --stream
     volumes:
-      - "./packages/recipe:/opt/app/recipe/"
-      - "/opt/app/recipe/node_modules"
+      - "/opt/app/node_modules"
+      - "/opt/app/packages/recipe/node_modules"
+      - "./packages/recipe:/opt/app/packages/recipe"
+      - "./packages/shared:/opt/app/packages/shared"
     env_file: .env
     environment:
       - MONGO_USERNAME=$MONGO_USERNAME
@@ -76,10 +79,14 @@ services:
     build:
       context: .
       dockerfile: "Dockerfile"
+      args:
+        - APP_NAME=recipe
     command: yarn start --scope recipe dev:client --stream
     volumes:
-      - "./packages/recipe:/opt/app/recipe/"
-      - "/opt/app/recipe/node_modules"
+      - "/opt/app/node_modules"
+      - "/opt/app/packages/recipe/node_modules"
+      - "./packages/recipe:/opt/app/packages/recipe"
+      - "./packages/shared:/opt/app/packages/shared"
     ports:
       - "3002:3002"
     networks:
@@ -89,10 +96,14 @@ services:
     build:
       context: .
       dockerfile: "Dockerfile"
+      args:
+        - APP_NAME=search
     command: yarn start --scope search dev:server --stream
     volumes:
-      - "./packages/search:/opt/app/search/"
-      - "/opt/app/search/node_modules"
+      - "/opt/app/node_modules"
+      - "/opt/app/packages/search/node_modules"
+      - "./packages/search:/opt/app/packages/search"
+      - "./packages/shared:/opt/app/packages/shared"
     ports:
       - "5001:5001"
     networks:
@@ -102,10 +113,14 @@ services:
     build:
       context: .
       dockerfile: "Dockerfile"
+      args:
+        - APP_NAME=search
     command: yarn start --scope search dev:client --stream
     volumes:
-      - "./packages/search:/opt/app/search/"
-      - "/opt/app/search/node_modules"
+      - "/opt/app/node_modules"
+      - "/opt/app/packages/search/node_modules"
+      - "./packages/search:/opt/app/packages/search"
+      - "./packages/shared:/opt/app/packages/shared"
     depends_on:
       - search-server
     ports:
