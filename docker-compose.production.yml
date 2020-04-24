@@ -17,11 +17,7 @@ services:
     networks:
       - micro-frontend-network
   container-server:
-    build:
-      context: .
-      dockerfile: "Dockerfile.production"
-      args:
-        APP_NAME: container
+    image: ${REPO:-neilzo}/micro-frontend-container:${TAG:-latest}
     command: yarn start --scope container start:server --stream
     container_name: "container-server"
     ports:
@@ -30,11 +26,7 @@ services:
       - micro-frontend-network
   recipe-server:
     container_name: "recipe-server"
-    build:
-      context: .
-      dockerfile: "Dockerfile.production"
-      args:
-        APP_NAME: recipe
+    image: ${REPO:-neilzo}/micro-frontend-recipe:${TAG:-latest}
     command: yarn start --scope recipe start:server --stream
     depends_on:
       - database
@@ -52,11 +44,7 @@ services:
       - micro-frontend-network
   search-server:
     container_name: "search-server"
-    build:
-      context: .
-      dockerfile: "Dockerfile.production"
-      args:
-        APP_NAME: search
+    image: ${REPO:-neilzo}/micro-frontend-search:${TAG:-latest}
     command: yarn start --scope search start:server --stream
     ports:
       - "5001:5001"
