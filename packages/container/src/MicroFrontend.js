@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Api from '@micro-frontend/shared/Api';
+import Api from '@micro-frontend/shared/src/Api';
 
 import separateAssets from './separateAssets';
 
