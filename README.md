@@ -30,13 +30,14 @@ Requires:
 1. `git clone` this repo
 2. Within the app dir, run `docker-compose build`
 3. Then `docker-compose up`
-4. Load `http://localhost:3000` in a browser
-5. Take over the world with its web-scale
-
-To seed recipes, run:
-```
-docker exec -it recipe-server node packages/recipe/scripts/seedRecipes.js
-```
+4. To create the default MongoDB user, first sh in with `docker exec -it database mongo`
+5. Copy, paste, and run the code from `scripts/initMongo.js`
+6. To seed recipes, run:
+   ```
+   docker exec -it recipe-server node packages/recipe/scripts/seedRecipes.js
+   ```
+7. Load `http://localhost:3000` in a browser
+8. Take over the world with its web-scale
 
 ## TODO:
 
