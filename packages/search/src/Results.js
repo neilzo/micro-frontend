@@ -16,10 +16,11 @@ const recipeView = (data) => ({
 });
 
 const fetchRecipes = () => {
-  const url =
+  const host =
     process.env.NODE_ENV === 'development'
       ? process.env.REACT_APP_SEARCH_HOST
-      : `${process.env.REACT_APP_SEARCH_SERVER_HOST}/api/search`;
+      : process.env.REACT_APP_SEARCH_SERVER_HOST;
+  const url = `${host}/api/search`;
 
   return Api.get(url)
     .then((recipes) => recipes.map(recipeView));
