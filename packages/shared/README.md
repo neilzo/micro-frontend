@@ -1,6 +1,6 @@
-# `@micro-frontend/index`
+# `@micro-frontend/shared`
 
-> TODO: description
+An example of shared code across packages
 
 ## Usage
 
@@ -9,3 +9,7 @@ const index = require('@micro-frontend/index');
 
 // TODO: DEMONSTRATE API
 ```
+
+## TODO 
+
+- [ ] Transpile (babel) and build

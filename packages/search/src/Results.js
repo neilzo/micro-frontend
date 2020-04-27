@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import get from 'lodash/get';
-import Api from '@micro-frontend/shared/Api';
+import Api from '@micro-frontend/shared/src/Api';
 
 import Card from './Card';
 

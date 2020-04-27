@@ -62,6 +62,8 @@ docker exec -it recipe-server node packages/recipe/scripts/seedRecipes.js
   - [x] Consolidate docker files
   - [x] Fix classnames not being installed :confused:
   - [x] Use multi-stage builds to trim image size
+- [ ] CI
+  - [ ] Github actions/CircleCI
 - [ ] Prod build + deploy
   - [x] Build and serve static files
   - [ ] Ship it to the world
