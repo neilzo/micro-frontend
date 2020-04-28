@@ -51,8 +51,8 @@ Requires:
     - [x] Implement and share access across sub-apps
 - [ ] Testing
   - [x] Scaffold tests
-  - [ ] Increase coverage to 75%
-  - [ ] Coverage tool?
+  - [ ] Increase coverage to 70%
+  - [ ] Coverage tool
 - [ ] Add LESS/SCSS
 - [x] Add trivial DB interactions to show its use
   - [ ] Add auth (account, login/out)
@@ -67,7 +67,8 @@ Requires:
   - [x] Fix classnames not being installed :confused:
   - [x] Use multi-stage builds to trim image size
 - [ ] CI
-  - [ ] Github actions/CircleCI
+  - [x] Github actions/CircleCI for test/lint
+  - [ ] Use for publish/build
 - [ ] Prod build + deploy
   - [x] Build and serve static files
   - [x] Ship it to the world
