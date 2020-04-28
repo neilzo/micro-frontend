@@ -54,7 +54,8 @@ Requires:
 - [ ] Add LESS/SCSS
 - [x] Add trivial DB interactions to show its use
   - [ ] Add auth (account, login/out)
-- [ ] Add Nginx
+- [x] Add Nginx
+  - [ ] Configure to serve static assets from each sub-app
 - [x] Experiment w/ Docker
   - [x] Dockerfiles
   - [x] Docker compose
@@ -67,4 +68,4 @@ Requires:
   - [ ] Github actions/CircleCI
 - [ ] Prod build + deploy
   - [x] Build and serve static files
-  - [ ] Ship it to the world
+  - [x] Ship it to the world
