@@ -2,6 +2,8 @@
 
 A proof-of-concept for frontend `~microservices~`
 
+![CI](https://github.com/neilzo/micro-frontend/workflows/CI/badge.svg)
+
 ## Overview
 
 This app is inspired by [Cam Jackson's micro-frontend article](https://martinfowler.com/articles/micro-frontends.html)
