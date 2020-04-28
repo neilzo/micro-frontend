@@ -16,6 +16,15 @@ services:
     restart: always
     networks:
       - micro-frontend-network
+  nginx:
+    container_name: "nginx"
+    build:
+      context: "./nginx"
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    networks:
+      - micro-frontend-network
   container-server:
     image: ${REPO:-neilzo}/micro-frontend-container:${TAG:-latest}
     command: yarn start --scope container start:server --stream

@@ -1,19 +1,15 @@
 {
   "name": "@micro-frontend/shared",
   "version": "0.0.6",
-  "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
+  "description": "An example of shared code for a monorepo",
   "keywords": [],
   "author": "Neil Daftary <nmd278@nyu.edu>",
   "license": "ISC",
   "type": "module",
   "main": "index.js",
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "src": "src"
   },
-  "files": [
-    "lib"
-  ],
   "publishConfig": {
     "access": "public"
   },
@@ -22,7 +18,7 @@
     "url": "git+https://github.com/neilzo/micro-frontend.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "jest"
   },
   "bugs": {
     "url": "https://github.com/neilzo/micro-frontend/issues"

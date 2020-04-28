@@ -30,13 +30,14 @@ Requires:
 1. `git clone` this repo
 2. Within the app dir, run `docker-compose build`
 3. Then `docker-compose up`
-4. Load `http://localhost:3000` in a browser
-5. Take over the world with its web-scale
-
-To seed recipes, run:
-```
-docker exec -it recipe-server node packages/recipe/scripts/seedRecipes.js
-```
+4. To create the default MongoDB user, first sh in with `docker exec -it database mongo`
+5. Copy, paste, and run the code from `scripts/initMongo.js`
+6. To seed recipes, run:
+   ```
+   docker exec -it recipe-server node packages/recipe/scripts/seedRecipes.js
+   ```
+7. Load `http://localhost:3000` in a browser
+8. Take over the world with its web-scale
 
 ## TODO:
 
@@ -53,7 +54,8 @@ docker exec -it recipe-server node packages/recipe/scripts/seedRecipes.js
 - [ ] Add LESS/SCSS
 - [x] Add trivial DB interactions to show its use
   - [ ] Add auth (account, login/out)
-- [ ] Add Nginx
+- [x] Add Nginx
+  - [ ] Configure to serve static assets from each sub-app
 - [x] Experiment w/ Docker
   - [x] Dockerfiles
   - [x] Docker compose
@@ -62,6 +64,8 @@ docker exec -it recipe-server node packages/recipe/scripts/seedRecipes.js
   - [x] Consolidate docker files
   - [x] Fix classnames not being installed :confused:
   - [x] Use multi-stage builds to trim image size
+- [ ] CI
+  - [ ] Github actions/CircleCI
 - [ ] Prod build + deploy
   - [x] Build and serve static files
-  - [ ] Ship it to the world
+  - [x] Ship it to the world
