@@ -27,7 +27,7 @@
   ],
   "author": "Neil Daftary",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "lerna": "^3.20.2"
   }
 }
