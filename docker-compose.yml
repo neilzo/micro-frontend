@@ -27,8 +27,17 @@ services:
       - "/opt/app/packages/container/node_modules"
       - "./packages/shared:/opt/app/packages/shared"
       - "/opt/app/node_modules"
+    env_file: .env
+    environment:
+      - MONGO_USERNAME=$MONGO_USERNAME
+      - MONGO_PASSWORD=$MONGO_PASSWORD
+      - MONGO_HOSTNAME=database
+      - MONGO_PORT=$MONGO_PORT
+      - MONGO_DB=$MONGO_DB
     ports:
       - "5000:5000"
+    depends_on:
+      - database
     networks:
       - micro-frontend-network
   container-client:

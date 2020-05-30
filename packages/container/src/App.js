@@ -8,6 +8,7 @@ import { fetchUser } from './actions/user';
 import MicroFrontend from './MicroFrontend';
 import Header from './Header';
 import About from './About';
+import SignUp from './SignUp';
 
 const { REACT_APP_SEARCH_HOST: searchHost, REACT_APP_RECIPE_HOST: recipeHost } = process.env;
 
@@ -59,6 +60,7 @@ export function App({ requestUser, store }) {
           <RouteWithStore exact path="/" component={Search} store={store} />
           <Route exact path="/recipe/:id" component={Recipe} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/sign-up" component={SignUp} />
           <Route
             path="*"
             component={() => <div>These are not the droids you&apos;re looking for</div>}

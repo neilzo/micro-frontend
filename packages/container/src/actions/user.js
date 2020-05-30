@@ -1,3 +1,5 @@
+import Api from '@micro-frontend/shared/src/Api';
+
 import { ADD_USER } from '../constants/user';
 
 const mockUserData = {
@@ -20,4 +22,15 @@ export const fetchUser = () => (dispatch) => {
 
     return userData;
   });
+};
+
+export const signup = (formValues) => () => {
+  Api.post('/api/registration/signup', formValues)
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch(e => {
+      throw e;
+    });
 };

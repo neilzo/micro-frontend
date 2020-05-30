@@ -9,7 +9,7 @@
 }
 
 .linksHome {
-  color: var(--text-color);
+  color: var(--color-text);
   text-decoration: none;
   font-size: 1.375rem;
 }
@@ -18,5 +18,12 @@
 }
 
 .links {
-  margin-left: 20px;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+  flex: 0 0 120px;
+}
+
+.links > a {
+  text-decoration: none;
 }

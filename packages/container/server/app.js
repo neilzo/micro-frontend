@@ -1,19 +1,23 @@
+require('./db');
 const path = require('path');
 const express = require('express');
+const bodyParser = require('body-parser');
+
+const routes = require('./routes');
 
 const app = express();
 
-const router = express.Router();
+// Middleware to accept and parse POST data
+// Still wondering why this isn't in Express by default
+app.use(bodyParser.json());
 
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, '../build')));
 
-router.get('/test', (req, res) => {
-  res.send('Container API test route v3');
-});
+// Init routes
+routes.init(app);
 
-app.use('/api', router);
-
+// If a route doesn't match, serve index.html and let the client route
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });

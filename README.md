@@ -54,6 +54,11 @@ Requires:
   - [ ] Increase coverage to 70%
   - [ ] Coverage tool
 - [ ] Add LESS/SCSS
+- [ ] Switch Node to use ESM instead of CJS
+- [ ] Typescript
+  - [ ] On da client
+  - [ ] On da server
+- [ ] At this point, why not try SSR as well
 - [x] Add trivial DB interactions to show its use
   - [ ] Add auth (account, login/out)
 - [x] Add Nginx
@@ -66,6 +71,8 @@ Requires:
   - [x] Consolidate docker files
   - [x] Fix classnames not being installed :confused:
   - [x] Use multi-stage builds to trim image size
+  - [ ] Use nginx in dev
+  - [ ] Consolidate dev images from 6 > 3
 - [ ] CI
   - [x] Github actions/CircleCI for test/lint
   - [ ] Use for publish/build

@@ -1,0 +1,31 @@
+.container {
+  max-width: 22rem;
+  margin: 2rem auto;
+}
+
+.container__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+
+}
+
+.input {
+  flex: 1 1 auto;
+  height: 40px;
+}
+
+.button__submit {
+  margin-top: 20px;
+}
+
+.error {
+  color: var(--color-red);
+}
