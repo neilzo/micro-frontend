@@ -1,5 +1,8 @@
 import React, { useReducer, useState } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import * as userActions from './actions/user';
 
 import styles from './SignUp.module.css';
 
@@ -16,14 +19,14 @@ function reducer(state, action) {
   };
 }
 
-const SignUp = () => {
+const SignUp = ({ signup }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     dispatch({ type: e.target.id, value: e.target.value });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     const { password, confirmPassword, email } = state;
     e.preventDefault();
     const pwTouched = password && confirmPassword;
@@ -33,13 +36,20 @@ const SignUp = () => {
     if (isMismatched) {
       setError('🚨 Your passwords must match 🚨');
       return;
-    } else if (isIncomplete) {
+    }
+    if (isIncomplete) {
       setError('Fill everything out, homes 🕵️‍');
       return;
     }
     setError(null);
 
-    console.log('form submit', state);
+    try {
+      await signup(state);
+    } catch (err) {
+      // handle errors
+      console.log("I'm in da component", err);
+      // setError(e.msg)
+    }
   };
   const renderError = () => {
     if (!error) return null;
@@ -50,32 +60,39 @@ const SignUp = () => {
     <div className={styles.container}>
       <h1>Sign Up</h1>
       <form action="" className={styles.container__form} onSubmit={handleSubmit}>
-        <label htmlFor="email">Email:</label>
-        <input
-          id="email"
-          type="email"
-          placeholder="yourEmail@example.com"
-          onChange={handleChange}
-          className={styles.input}
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          id="password"
-          type="password"
-          placeholder="***"
-          onChange={handleChange}
-          className={styles.input}
-        />
-        <label htmlFor="confirmPassword">Confirm Password:</label>
-        <input
-          id="confirmPassword"
-          type="password"
-          placeholder="***"
-          onChange={handleChange}
-          className={styles.input}
-        />
+        <label htmlFor="email" className={styles.field}>
+          <p className={styles.label}>Email:</p>
+          <input
+            id="email"
+            type="email"
+            placeholder="yourEmail@example.com"
+            onChange={handleChange}
+            className={styles.input}
+          />
+        </label>
+        <label htmlFor="password" className={styles.field}>
+          <p className={styles.label}>Password:</p>
+
+          <input
+            id="password"
+            type="password"
+            placeholder="***"
+            onChange={handleChange}
+            className={styles.input}
+          />
+        </label>
+        <label htmlFor="confirmPassword" className={styles.field}>
+          <p className={styles.label}>Confirm Password:</p>
+          <input
+            id="confirmPassword"
+            type="password"
+            placeholder="***"
+            onChange={handleChange}
+            className={styles.input}
+          />
+        </label>
         {renderError()}
-        <button type="submit" className={`btn ${styles.button__submit}`}>
+        <button type="submit" className={`btn btn-primary ${styles.button__submit}`}>
           Create Account
         </button>
       </form>
@@ -83,6 +100,12 @@ const SignUp = () => {
   );
 };
 
-SignUp.propTypes = {};
+SignUp.propTypes = {
+  signup: PropTypes.func.isRequired,
+};
 
-export default SignUp;
+const mapDispatchToProps = (dispatch) => ({
+  signup: (formValues) => dispatch(userActions.signup(formValues)),
+});
+
+export default connect(null, mapDispatchToProps)(SignUp);

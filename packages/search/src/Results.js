@@ -22,8 +22,7 @@ const fetchRecipes = () => {
       : process.env.REACT_APP_SEARCH_SERVER_HOST;
   const url = `${host}/api/search`;
 
-  return Api.get(url)
-    .then((recipes) => recipes.map(recipeView));
+  return Api.get(url).then((recipes) => recipes.map(recipeView));
 };
 
 const Results = () => {

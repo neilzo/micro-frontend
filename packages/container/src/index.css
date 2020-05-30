@@ -9,6 +9,9 @@
   --color-white: #fff;
   --color-light-gray: #dbdbdb;
   --color-red: #f14668;
+  --color-blue: #3273dc;
+  --color-blue-light: #209cee;
+  --color-purple: #b86bff;
 }
 
 body {
@@ -31,6 +34,14 @@ h5 {
   margin-top: 0;
 }
 
+a {
+  color: var(--color-blue);
+}
+
+a:visited {
+  color: var(--color-purple);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
@@ -49,4 +60,9 @@ code {
   white-space: nowrap;
   height: 40px;
   font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--color-blue);
+  color: var(--color-white);
 }

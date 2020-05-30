@@ -8,11 +8,17 @@
   flex-direction: column;
 }
 
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
 .label {
 
 }
 
 .input {
+  flex: 1 1 auto;
   height: 40px;
 }
 
