@@ -11,7 +11,7 @@
     "customize-cra": "^0.9.1",
     "dotenv": "^8.2.0",
     "es6-promise": "^4.2.8",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "history": "^4.10.1",
     "isomorphic-fetch": "^2.2.1",
     "prop-types": "^15.7.2",
